@@ -9,8 +9,15 @@
 Create an object called car using the object literal notation ({}). Give it a make property, a model property, and a year property. Then give it a method called getAge. This method should take in the current year and return the age of the car as an integer. 
 */
 
-// Code here
-var car;
+var car = {
+    make: 'Honda',
+    model: 'Civic',
+    year: 1996,
+    getAge: function(currentYear){
+        return currentYear -= this.year;
+    }
+}
+
 
 
 /* 
@@ -19,10 +26,7 @@ var car;
 Call the getAge method using the car object. Don't forget to pass the year argument. Assign the result to the variable 'carAge' so I can test it.
 */
 
-// Code here
-var carAge;
-
-
+var carAge = car.getAge(2017);
 
 /*
 
@@ -34,7 +38,11 @@ Create another object called anotherCar with the make, model, and year propertie
 */
 
 // Code here
-var anotherCar;
+var anotherCar = {
+    make: 'Ford',
+    model: 'F250',
+    year: 2016,
+}
 
 
 
@@ -45,7 +53,7 @@ Now bind the getAge method of the first car object to the context of anotherCar.
 */
 
 // Code here
-var getAgeForAnotherCar;
+var getAgeForAnotherCar = car.getAge.bind(anotherCar);
 
 
 
@@ -55,9 +63,11 @@ var getAgeForAnotherCar;
 Now assign a year property to the window object. Give that property the value 2000. Then call the getAge method of car with the window object as the context. Assign the result of that call to the variable windowAge. 
 
 */
+var window = {
+    year: 2000,
+};
 
-// Code here
-var windowAge;
+var windowAge = car.getAge.call(window, 2017);
 
 /* 
 
